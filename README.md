@@ -1,5 +1,6 @@
-# selenium-paralel ⚡
+# selenium-parallel-execution-framework ⚡
 
+[![Selenium CI](https://github.com/ClasherGeek77/selenium-parallel-execution-framework/actions/workflows/selenium-ci.yml/badge.svg)](https://github.com/ClasherGeek77/selenium-parallel-execution-framework/actions/workflows/selenium-ci.yml)
 [![Selenium](https://img.shields.io/badge/Selenium-WebDriver-success?logo=selenium)](https://www.selenium.dev/)
 [![Pytest](https://img.shields.io/badge/Framework-Pytest-blue?logo=pytest)](https://docs.pytest.org/en/7.4.x/)
 [![Docker](https://img.shields.io/badge/Infrastructure-Docker-blue?logo=docker)]()

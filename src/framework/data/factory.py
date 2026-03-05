@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 class DataFactory(abc.ABC):
     """
-    Principal-Grade Data Factory for API-driven test data isolation.
+    Data Factory for API-driven test data isolation.
     """
     @abc.abstractmethod
     def create_user(self, **kwargs) -> dict[str, Any]:

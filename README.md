@@ -1,4 +1,4 @@
-# UNI Selenium Parallel Execution Framework ⚡ (Principal-Grade)
+# UNI Selenium Parallel Execution Framework ⚡
 
 An elite, highly scalable automation boilerplate utilizing **Python, Selenium WebDriver, Pytest, and Docker** designed for industrial-strength UI automation.
 

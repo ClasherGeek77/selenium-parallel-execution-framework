@@ -2,7 +2,7 @@
 name = "selenium-parallel-framework"
 version = "0.1.0"
 package-mode = false
-description = "Principal-Grade Selenium Parallel Execution Framework"
+description = "Selenium Parallel Execution Framework"
 authors = [
     {name = "Antigravity",email = "antigravity@google.com"}
 ]

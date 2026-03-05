@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+.pytest_cache/
+venv/
+env/
+.env
+*.py[cod]
+*$py.class
+
+# Logs & Reports
+*.log
+*.jtl
+Reports/
+temp/
+
+# Docker
+.docker_id
+
+# IDEs
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

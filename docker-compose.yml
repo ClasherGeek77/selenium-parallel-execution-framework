@@ -1,16 +1,36 @@
-version: '3'
+version: '3.8'
 
 services:
-  selenium:
-    image: selenium/standalone-chrome:109.0-chromedriver-109.0-grid-4.8.0-20230123
-    tty: true
-    volumes:
-      - /dev/shm:/dev/shm
+  selenium-hub:
+    image: selenium/hub:4.8.0-20230123
+    container_name: selenium-hub
     ports:
-      - 127.0.0.1:4444:4444
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+
+  chrome:
+    image: selenium/node-chrome:4.8.0-20230123
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
     environment:
-      - START_XVFB=true
-      - SE_NODE_MAX_SESSIONS=10
-      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-    shm_size: 2g
-    restart: always
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=2
+    deploy:
+      replicas: 2
+
+  firefox:
+    image: selenium/node-firefox:4.8.0-20230123
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=2
+    deploy:
+      replicas: 1

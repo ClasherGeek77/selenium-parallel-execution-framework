@@ -1,3 +1,0 @@
-pip install selenium==4.0.0a7
-pip install pytest==5.4.2
-pip install pytest-xdist==3.3.1

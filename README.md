@@ -1,30 +1,65 @@
-# selenium-parallel-execution-framework ⚡
+# UNI Selenium Parallel Execution Framework ⚡ (Principal-Grade)
 
-[![Selenium CI](https://github.com/ClasherGeek77/selenium-parallel-execution-framework/actions/workflows/selenium-ci.yml/badge.svg)](https://github.com/ClasherGeek77/selenium-parallel-execution-framework/actions/workflows/selenium-ci.yml)
-[![Selenium](https://img.shields.io/badge/Selenium-WebDriver-success?logo=selenium)](https://www.selenium.dev/)
-[![Pytest](https://img.shields.io/badge/Framework-Pytest-blue?logo=pytest)](https://docs.pytest.org/en/7.4.x/)
-[![Docker](https://img.shields.io/badge/Infrastructure-Docker-blue?logo=docker)]()
+An elite, highly scalable automation boilerplate utilizing **Python, Selenium WebDriver, Pytest, and Docker** designed for industrial-strength UI automation.
 
-An advanced, highly scalable automation framework utilizing **Python, Selenium WebDriver, Pytest**, and **Docker** to execute tests in parallel across multiple nodes.
+## 🚀 Key Architectural Pillars
 
-## 🎯 Objective
-To dramatically reduce test suite execution times and showcase modern SDET infrastructure architecture by executing UI tests concurrently via `pytest-xdist` against a containerized Selenium Grid.
+### 1. High-Performance Infrastructure
+- **Dependency Management**: Powered by `Poetry` for deterministic, lock-file based environments.
+- **BaaS Abstraction**: A "Browser-as-a-Service" layer to seamlessly toggle between local containers and a scaled Selenium Grid.
+- **Hub/Node Scaling**: Refactored `docker-compose` for horizontal scaling of Chrome and Firefox nodes.
 
-## 🏗 Architecture & Technologies
-- **Language**: Python 3
-- **Test Runner**: Pytest (with `pytest-xdist` for parallelization)
-- **UI Interaction**: Selenium WebDriver
-- **Infrastructure**: Docker & Docker Compose (Browser Nodes)
+### 2. Radical Reliability & Type Safety
+- **BasePage Architecture**: Robust explicit waits and common interaction patterns encapsulated in a central base class.
+- **Strict Protocols**: Protocol-based interaction contracts ensuring type safety across the framework.
+- **Atomic Page Objects**: Designed to move from monolithic pages to reusable UI components.
 
-## ⚙️ Key Technical Highlights
-1. **Parallel Execution Engine**: Tests are distributed across CPU cores or nodes, slashing build times by up to 80% compared to serial execution.
-2. **Containerized Environments**: Headless browsers run in isolated Docker containers, ensuring consistent environments and preventing "it works on my machine" issues.
-3. **Thread-Safe Data**: Test data and reporting mechanisms are designed to safely handle concurrent read/writes.
-4. **Dynamic Driver Instantiation**: WebDrivers are spun up and torn down for each thread autonomously without collisions.
+### 3. Deep Observability & DevEx
+- **Rich Reporting**: Automated Allure reports with integrated failure screenshots and browser log capture.
+- **Sandbox CLI**: A dedicated `sandbox.py` script for rapid environment setup and test execution.
+- **Data Isolation**: API-First Data Factory patterns for instant, isolated test state initialization.
 
-## 🚀 Getting Started
-1. Start the Dockerized Grid: `docker-compose up -d`
-2. Install dependencies: `pip install -r requirements.txt`
-3. Execute the tests in parallel (e.g., using 4 workers): `pytest -n 4 tests/`
+## 🛠 Project Layout
 
-> *"I don't just automate tests. I build testers."* — Teddy Lioner
+```text
+.
+├── src/framework/       # Core framework library
+│   ├── components/      # Atomic UI components & BasePage
+│   ├── core/            # Config, Factory, and Protocols
+│   ├── data/            # API-driven Data Factorites
+│   └── observability/   # Tracing, Logging, and Reporting
+├── tests/               # Test suites (web, api, mobile)
+├── scripts/             # Developer utilities (sandbox.py)
+├── pyproject.toml       # Poetry configuration
+└── docker-compose.yml   # Scalable Selenium Grid
+```
+
+## 🏁 Getting Started
+
+### 1. Prerequisites
+- Python 3.10+
+- Docker & Docker Compose
+- [Poetry](https://python-poetry.org/docs/#installation)
+
+### 2. Setup
+```bash
+poetry install
+```
+
+### 3. Execution via Sandbox
+```bash
+# Start the Selenium Grid
+python3 scripts/sandbox.py up
+
+# Run tests in parallel (4 workers) against local grid
+python3 scripts/sandbox.py test --workers 4 --env grid
+
+# Stop the grid
+python3 scripts/sandbox.py down
+```
+
+## 📊 Reporting
+After running tests, generate the Allure report:
+```bash
+python3 scripts/sandbox.py report
+```

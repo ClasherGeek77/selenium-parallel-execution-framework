@@ -1,5 +1,5 @@
 import pytest
-from pages.home_page import HomePage
+from src.framework.pages.home_page import HomePage
 
 @pytest.mark.parametrize("execution_id", [1, 2, 3, 4])
 def test_julo_homepage_title(driver, execution_id):

@@ -1,3 +1,5 @@
+[![CI](https://github.com/ClasherGeek77/selenium-parallel-execution-framework/actions/workflows/selenium-ci.yml/badge.svg)](https://github.com/ClasherGeek77/selenium-parallel-execution-framework/actions/workflows/selenium-ci.yml)
+
 # Selenium Parallel Execution Framework ⚡
 
 An elite, highly scalable automation boilerplate utilizing **Python, Selenium WebDriver, Pytest, and Docker** designed for industrial-strength UI automation.
